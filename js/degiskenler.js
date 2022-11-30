@@ -1,10 +1,11 @@
-var a = 5; 
-let b = "ismail";
+var a = 5
+let b = "ismail"
 var g = 'i'
 let c = new Date()
-var d = true;
+var d = true
 var e = [1,2,3]
 var f = 3.14
+// JSON
 var person = {
     name: 'ismail',
     age:38,
@@ -18,3 +19,11 @@ var person = {
       }
     ]
 }
+
+var k = function topla() {}
+
+console.log(a)
+
+
+
+
