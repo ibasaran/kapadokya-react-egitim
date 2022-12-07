@@ -9,9 +9,11 @@ function App() {
 
 
   return (
-    <div className="App">
-      <ContactList contacts={contacts}  />
-      <ContactForm setContacts={setContacts} contacts={contacts}/>
+    <div id="app-container">
+      <div className="contact-container">
+        <ContactList contacts={contacts}  />
+        <ContactForm setContacts={setContacts} contacts={contacts}/>
+      </div>
     </div>
   );
 }

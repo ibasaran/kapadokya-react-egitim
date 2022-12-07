@@ -16,12 +16,17 @@ const ContactList = ({contacts}) => {
 
     return (
         <div>
+            <h1>Contact List</h1>
+
             <input name="filtertext" placeholder="Filter Contact" value={filteredText}
                     onChange={ (event) => {setFilteredText(event.target.value)}  }/>
             <ul>
                 {
                     filtered.map((contact, index)  => {
-                        return <li key={index + 'contact'}> {contact.fullname} - {contact.tel_number} </li>
+                        return <li key={index + 'contact'}> 
+                                    <span>{contact.fullname}</span>
+                                    <span>{contact.tel_number}</span>
+                                </li>
                     })
                 }
             </ul>

@@ -15,6 +15,12 @@ const ContactForm = (props) => {
     }
 
     const submitForm = () => {
+
+        if (form.fullname === '' || form.tel_number === '') {
+            return;
+        }
+
+
         props.setContacts([...props.contacts,form])
         
     }
@@ -27,8 +33,8 @@ const ContactForm = (props) => {
             <div>
                 <input value={form.tel_number} name="tel_number" placeholder="Telefon Numarası" onChange={onChangeInput}/>
             </div>
-            <div>
-                <button onClick={submitForm}>Ekle</button>
+            <div className="btn" style={{display:'flex', justifyContent: 'flex-end', padding:15}}>
+                <button  onClick={submitForm}>Ekle</button>
             </div>
         </div>
     )
