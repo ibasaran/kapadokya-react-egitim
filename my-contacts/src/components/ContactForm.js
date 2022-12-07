@@ -1,16 +1,34 @@
+import { useState, useEffect } from "react";
 
-const ContactForm = () => {
+const initialFormState = {fullname:'', tel_number:''}
+
+const ContactForm = (props) => {
+
+    const [form,setForm] = useState(initialFormState);
+
+    useEffect( () => {
+        setForm(initialFormState)
+    }, [props.contacts] )
+
+    const onChangeInput = (event) => {
+        setForm({...form, [event.target.name]:event.target.value})
+    }
+
+    const submitForm = () => {
+        props.setContacts([...props.contacts,form])
+        
+    }
 
     return (
         <div>
             <div>
-                <input name="fullname" placeholder="İsim Giriniz" />
+                <input value={form.fullname} name="fullname" placeholder="İsim Giriniz" onChange={onChangeInput}/>
             </div>
             <div>
-                <input name="tel_number" placeholder="Telefon Numarası" />
+                <input value={form.tel_number} name="tel_number" placeholder="Telefon Numarası" onChange={onChangeInput}/>
             </div>
             <div>
-                <button>Ekle</button>
+                <button onClick={submitForm}>Ekle</button>
             </div>
         </div>
     )
