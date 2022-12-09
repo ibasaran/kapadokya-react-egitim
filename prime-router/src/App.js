@@ -1,24 +1,31 @@
 
-import Hakkimizda from "./pages/Hakkimizda";
-import Anasayfa from "./pages/Anasayfa";
-import Iletisim from "./pages/Iletisim";
-import DemoLayout from "./components/layouts/DemoLayout";
+// import Hakkimizda from "./pages/Hakkimizda";
+// import Anasayfa from "./pages/eskisayfalar/Anasayfa";
+// import Iletisim from "./pages/Iletisim";
+// import DemoLayout from "./components/layouts/DemoLayout";
+import BaseLayout from "./components/layouts/BaseLayout";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Gorevler from "./pages/Gorevler";
+import GorevEkle from "./pages/GorevEkle";
+import Hakkimizda from "./pages/Hakkimizda";
+import Pano from "./pages/Pano";
+import Login from "./pages/Login";
 
 function App() {
 
   return (
-    <div className="grid" style={{padding:30}}>
+
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<DemoLayout/>}>
-              <Route path="/" element={<Anasayfa />} />
-              <Route path="/hakkimizda" element={<Hakkimizda />}></Route>
-              <Route path="/iletisim" element={<Iletisim/>}></Route>
+          <Route path="/" element={<BaseLayout/>}>
+              <Route path="/" element={<Pano />} />
+              <Route path="/gorevler" element={<Gorevler />}></Route>
+              <Route path="/gorevekle" element={<GorevEkle/>}></Route>
+              <Route path="/hakkimizda" element={<Hakkimizda/>}></Route>
           </Route>
+          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </BrowserRouter>
-    </div>
   );
 }
 

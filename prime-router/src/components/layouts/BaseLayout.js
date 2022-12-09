@@ -1,27 +1,32 @@
 import { Menubar } from 'primereact/menubar';
 import { Menu } from 'primereact/menu';
+import { Outlet } from 'react-router-dom';
 
 function BaseLayout() {
 
   const menu = [
     {
       label:'Pano',
-      icon: 'pi pi-align-justify'
+      icon: 'pi pi-align-justify',
+      url: '/'
     },
     {
       label: 'Hakkımızda',
-      icon: 'pi pi-book'
+      icon: 'pi pi-book',
+      url: '/hakkimizda'
     },
     {
       label: 'Görev Ekle',
-      icon: 'pi pi-plus-circle'
+      icon: 'pi pi-plus-circle',
+      url:'/gorevekle'
     }
   ]
 
   const solMenu = [
     {
       label: 'Görevler',
-      icon: 'pi pi-tablet'
+      icon: 'pi pi-tablet',
+      url: '/gorevler'
     }
   ]
 
@@ -40,11 +45,11 @@ function BaseLayout() {
       </div>
       <div className='col-12'>
           <div className='grid'>
-              <div className='col-4'>
+              <div className='col-2'>
                 <Menu model={solMenu}/>
               </div>
-              <div className='col-8'>
-
+              <div className='col-10'>
+                <Outlet />
               </div>
           </div>
       </div>
