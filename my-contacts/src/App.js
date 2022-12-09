@@ -14,6 +14,9 @@ function App() {
         <ContactList contacts={contacts}  />
         <ContactForm setContacts={setContacts} contacts={contacts}/>
       </div>
+      <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div>
     </div>
   );
 }
