@@ -1,55 +1,23 @@
-import './App.css';
-import { Menubar } from 'primereact/menubar';
-import { Image } from 'primereact/image';
-import { Menu } from 'primereact/menu';
+
+import Hakkimizda from "./pages/Hakkimizda";
+import Anasayfa from "./pages/Anasayfa";
+import Iletisim from "./pages/Iletisim";
+import DemoLayout from "./components/layouts/DemoLayout";
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 function App() {
 
-  const menu = [
-    {
-      label:'Pano',
-      icon: 'pi pi-align-justify'
-    },
-    {
-      label: 'Hakkımızda',
-      icon: 'pi pi-book'
-    },
-    {
-      label: 'Görev Ekle',
-      icon: 'pi pi-plus-circle'
-    }
-  ]
-
-  const solMenu = [
-    {
-      label: 'Görevler',
-      icon: 'pi pi-tablet'
-    }
-  ]
-
-  const start = <div>
-          <img src='https://kapadokya.edu.tr/img/logo.svg' height={40}/>
-          <span style={{paddingLeft:10, color:'brown'}}>GÖREV</span>
-      </div>
-
   return (
-    <div className="grid">
-      <div className='col-12'>
-          <Menubar 
-            model={menu}
-            start={start}  
-          />
-      </div>
-      <div className='col-12'>
-          <div className='grid'>
-              <div className='col-4'>
-                <Menu model={solMenu}/>
-              </div>
-              <div className='col-8'>
-
-              </div>
-          </div>
-      </div>
+    <div className="grid" style={{padding:30}}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DemoLayout/>}>
+              <Route path="/" element={<Anasayfa />} />
+              <Route path="/hakkimizda" element={<Hakkimizda />}></Route>
+              <Route path="/iletisim" element={<Iletisim/>}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
