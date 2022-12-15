@@ -23,8 +23,9 @@ const BlogList = () => {
         }
     ])
 
-    const blogDetayAc = (detayId) => {
-        navigate('/blogdetay/' + detayId)
+    const blogDetayAc = (blog) => {
+        //navigate('/blogdetay/' + detayId)
+        navigate('/blogdetay/' + blog.id, {state:{extra:'extra bilgi', blog:blog}})
     }
 
     return (
@@ -37,7 +38,7 @@ const BlogList = () => {
                         <div key={index + 'blog'}>
                             <h1>{blog.baslik}</h1>
                             <p>
-                                {blog.blogDetay}  <button onClick={() => blogDetayAc(blog.id)}>Devamı</button>
+                                {blog.blogDetay}  <button onClick={() => blogDetayAc(blog)}>Devamı</button>
                             </p>
                         </div>
                     )
@@ -46,8 +47,6 @@ const BlogList = () => {
             }
 
 
-           
-            
         </div>
     )
 }
