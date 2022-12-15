@@ -1,4 +1,3 @@
-
 // import Hakkimizda from "./pages/Hakkimizda";
 // import Anasayfa from "./pages/eskisayfalar/Anasayfa";
 // import Iletisim from "./pages/Iletisim";
@@ -14,7 +13,6 @@ import Login from "./pages/Login";
 function App() {
 
   return (
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BaseLayout/>}>
