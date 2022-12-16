@@ -1,4 +1,5 @@
 import {useParams, useLocation} from 'react-router-dom'
+import {Row, Col, Container} from 'react-bootstrap'
 
 const BlogDetay = () => {
 
@@ -6,11 +7,18 @@ const BlogDetay = () => {
     const location = useLocation();
 
     return (
-        <>
-            <h1>Blog Detay Sayfası  {id} </h1>
-            <p>{location.state.blog.id} - {location.state.blog.baslik} - {location.state.blog.blogDetay}</p>
-            <p>{location.state.extra}</p>
-        </>
+        <Container>
+            <Row>
+                <Col>
+                    <img src={location.state.blog.resim} style={{width: '100%', marginTop:20, marginBottom:20 }}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    {location.state.blog.detay}
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

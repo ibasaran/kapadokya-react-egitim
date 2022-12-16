@@ -1,41 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Table, Button } from "react-bootstrap";
 
 const BlogIstatistik = () => {
 
-    const [blogs,setBlogs] = useState(
-        [
-            {
-                id:1,
-                baslik: 'Javascript kurulum',
-                detay: 'Javascript şöyle kurulur...',
-                goruntulenme:3
-            },
-            {
-                id:2,
-                baslik: 'REactjs kurulum',
-                detay: 'Javascript şöyle kurulur...',
-                goruntulenme:5
-            },
-            {
-                id:3,
-                baslik: 'Database kurulum',
-                detay: 'Javascript şöyle kurulur...',
-                goruntulenme:7
-            },
-        ]
-    )
+    const [blogs,setBlogs] = useState([])
 
-        const blogEkle = () => {
-            setBlogs([...blogs, {id:4, baslik:'Java kurulum', detay:'Java kurulum detay', goruntulenme:0}])
-        }
+    const blogEkle = () => {
+        setBlogs([...blogs, {id:4, baslik:'Java kurulum', detay:'Java kurulum detay', goruntulenme:0}])
+    }
+
+    useEffect(() => {
+
+        const blog_items = JSON.parse(localStorage.getItem('blogs')) || []
+        setBlogs(blog_items)
+
+    }, []);
 
     return (
         <>
-            <button onClick={blogEkle}>Yeni blog ekle</button>
-            <table style={{border:'1px solid'}}>
+            
+            <Table bordered striped  style={{margin:20}}>
                 <thead>
-                    <th style={{border:'1px solid'}} >Blog Başlığı</th>
-                    <th style={{border:'1px solid'}}>Kaç Kez Görüntülendi</th>
+                    <tr>
+                        <th>Blog Başlığı</th>
+                        <th>Kaç Kez Görüntülendi</th>
+                    </tr>
                 </thead>
                 <tbody>
                    {
@@ -45,13 +34,16 @@ const BlogIstatistik = () => {
                                 <td>
                                     {blog.baslik}
                                 </td>
-                                <td>{blog.goruntulenme}</td>
+                                <td>{blog.gosterim}</td>
+                                <td>
+                                    <Button>Sil</Button>
+                                </td>
                             </tr>
                         )
                     } )
                    }
                 </tbody>
-            </table>
+            </Table>
         </>
     )
 }
