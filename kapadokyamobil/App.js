@@ -22,12 +22,15 @@ import ImageBackgroundComponent from './components/ImageBackgroundComponent';
 import TextInputComponent from './components/TextInputComponent';
 import ModalComponent from './components/ModalComponent';
 import FlexboxLayout from './layout/flexboxlayout';
+import FlexboxLayout2 from './layout/FlexboxLayout2';
+
+
 const App = () => {
 
   const [ctext,setCtext] = useState("State counter")
 
   return (
-    <FlexboxLayout></FlexboxLayout>
+    <FlexboxLayout2></FlexboxLayout2>
   )
 }
 
