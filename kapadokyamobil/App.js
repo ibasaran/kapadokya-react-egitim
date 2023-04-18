@@ -23,14 +23,15 @@ import TextInputComponent from './components/TextInputComponent';
 import ModalComponent from './components/ModalComponent';
 import FlexboxLayout from './layout/flexboxlayout';
 import FlexboxLayout2 from './layout/FlexboxLayout2';
-
+import FlexboxLayout3 from './layout/FlexboxLayout3';
+import FlexboxLayout4 from './layout/FlexboxLayout4';
 
 const App = () => {
 
   const [ctext,setCtext] = useState("State counter")
 
   return (
-    <FlexboxLayout2></FlexboxLayout2>
+    <FlexboxLayout4></FlexboxLayout4>
   )
 }
 
