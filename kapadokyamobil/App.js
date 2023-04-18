@@ -21,13 +21,13 @@ import SwitchComponent from './components/SwitchComponent';
 import ImageBackgroundComponent from './components/ImageBackgroundComponent';
 import TextInputComponent from './components/TextInputComponent';
 import ModalComponent from './components/ModalComponent';
-
+import FlexboxLayout from './layout/flexboxlayout';
 const App = () => {
 
   const [ctext,setCtext] = useState("State counter")
 
   return (
-    <ModalComponent></ModalComponent>
+    <FlexboxLayout></FlexboxLayout>
   )
 }
 
